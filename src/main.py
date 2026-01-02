@@ -10,7 +10,7 @@ from langchain.messages import (
     SystemMessage,
     AnyMessage,
 )
-from langgraph.graph import StateGraph, START, END
+
 from src.AnalysisResult import AnalysisResult
 from src.model import get_model
 from src.AgentState import AgentState
@@ -76,7 +76,7 @@ class DocumentAnalysisAgent():
 if __name__ == "__main__":
     # Single turn example
     init_state: AgentState = {
-        "messages": [HumanMessage(content="""Analyze these images and extract the needed information for each type of document:
+        "messages": [HumanMessage(content="""
                                     Image1 url: https://res.cloudinary.com/harnon-consulting/image/upload/v1763679163/image_tgmghj.jpg
                                     Image2 url: https://res.cloudinary.com/harnon-consulting/image/upload/v1763681824/certificacion_z2lc87.jpg
                                     Image3 url: https://res.cloudinary.com/harnon-consulting/image/upload/v1763739218/colilla_pxrkkl.jpg

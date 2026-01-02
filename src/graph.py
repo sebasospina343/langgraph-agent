@@ -3,6 +3,7 @@ from langgraph.graph import StateGraph, START, END
 from typing import List, Literal
 from src.AgentState import AgentState
 from loguru import logger
+from src.prompts import agent_prompt_system
 
 class DocumentAnalysisGraph():
     def __init__(self, model, tools_by_name):
@@ -16,14 +17,7 @@ class DocumentAnalysisGraph():
         - emit tool_calls (which will send us to the tools node)
         """
         system = SystemMessage(
-            content=(
-                "You are a document analysis agent. "
-                "Step 1) Extract the information from the images. "
-                "Step 2) Compare the information with the API to get the person's details. "
-                "Step 3) Return the information in a structured format adding your coincidence confidence."
-                "Step 4) If the information is not the same as the API, return the information in a structured format adding your coincidence confidence and the reason why it is not the same."
-                "Step 5) Return the results in spanish."
-            )
+            content=(agent_prompt_system)
         )
 
         response = self.model.invoke(

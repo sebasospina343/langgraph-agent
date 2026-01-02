@@ -71,7 +71,11 @@ class DocumentAnalysisAgent():
         return result
 
 
-# ---------- 8) Minimal “main” to test it ----------
+# Create the agent instance at module level for LangGraph
+agent = DocumentAnalysisAgent().agent
+
+
+# ---------- 8) Minimal "main" to test it ----------
 
 if __name__ == "__main__":
     # Single turn example

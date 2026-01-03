@@ -1,5 +1,5 @@
 {
-  "dependencies": ["langchain_anthropic"],
+  "dependencies": ["langchain_anthropic", "src"],
   "graphs": {
     "document_analysis_agent": "./src/main.py:agent"
   },
